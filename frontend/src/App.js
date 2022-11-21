@@ -1,23 +1,20 @@
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { Container, Row, Col } from "react-bootstrap"
+import Homescreen from "./screens/Homescreen";
 
-
-const App = () => {
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+        <main>
+          <Container>
+            {/* <h1>Welcome to my e shop</h1> */}
+            <Homescreen />
+          </Container>
+        </main>
+      <Footer />
+    </>
   );
 }
 
