@@ -7,7 +7,7 @@ const products = [
     brand:'Cereal',
     category:'Food',
     countInStock:3,
-    rating:4.5,
+    rating:3.5,
     price: 35,
     numReviews: 4,
 },
