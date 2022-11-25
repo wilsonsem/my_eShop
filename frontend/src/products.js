@@ -30,7 +30,7 @@ const products = [
     description: 'A tush laptop',
     brand:'DELL',
     category:'Laptops',
-    countInStock:7,
+    countInStock:0,
     rating:4,
     price: 45,
     numReviews: 4,
