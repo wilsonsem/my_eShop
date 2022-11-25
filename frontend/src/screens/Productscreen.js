@@ -13,8 +13,8 @@ const Productscreen = () => {
     const fetchProduct = async () => {
 
       // const { id } = useParams()
-      // console.log(id)
-      // const { id } = req.params
+      // const { id } = req.
+      
       const { data } = await axios.get( `/api/products/5`)
 
 
