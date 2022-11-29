@@ -6,23 +6,22 @@ import axios from 'axios'
 // import Product from '../components/Product'
 
 const Productscreen = () => {
-
-  const [product, setProduct] = useState({})
+  
+  const params = useParams()
+  const [product, setProduct] = useState([{}])
 
   useEffect (()=> {
-    const fetchProduct = async () => {
 
-      // const { id } = useParams()
-      // const { id } = req.
-      
-      const { data } = await axios.get( `/api/products/5`)
+    const fetchProduct = async () => {
+    
+      const { data } = await axios.get( `/api/products/${params.id}`)
 
 
     setProduct(data)
     }
 
     fetchProduct()
-  }, [])
+  }, [params.id])
 
   return <>
    <Link className='btn btn-dark my-3' to = '/'>
