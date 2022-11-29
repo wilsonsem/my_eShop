@@ -1,5 +1,8 @@
 const express = require('express')
+const dotenv = require('dotenv')
 const products = require('./data/products')
+
+dotenv.config()
 
 
 
@@ -21,6 +24,7 @@ app.get('/api/products/:id', (req, res) => {
     res.json(singleproduct)
 })
 
-app.listen(4000, () => {
-    console.log("Eshop listening on port 4000")
+const PORT = process.env.PORT || 4000
+app.listen(PORT, () => {
+    console.log(`Eshop running in ${process.env.NODE_ENV} environment on port ${PORT}`)
 })
