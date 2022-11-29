@@ -6,7 +6,7 @@ import axios from 'axios'
 // import Product from '../components/Product'
 
 const Productscreen = () => {
-  
+
   const params = useParams()
   const [product, setProduct] = useState([{}])
 
@@ -24,9 +24,7 @@ const Productscreen = () => {
   }, [params.id])
 
   return <>
-   <Link className='btn btn-dark my-3' to = '/'>
-    go back
-  </Link>
+  <h1>{product.name}</h1>
   <Row>
     <Col md={6}>
       <Image src={product.image} alt={product.name} fluid />
@@ -34,7 +32,7 @@ const Productscreen = () => {
     <Col md={3}>
       <ListGroup variant='flush'>
         <ListGroup.Item>
-          <h3>{product.name}</h3>
+          <h4>{product.name}</h4>
         </ListGroup.Item>
         <ListGroup.Item>
           <Rating value = {product.Rating} text={`${product.numReviews} reviews`}/>
@@ -71,6 +69,9 @@ const Productscreen = () => {
       </Card>
     </Col>
   </Row>
+  <Link className='btn btn-dark my-3' to = '/'>
+    go back
+  </Link>
   </>
 }
 
