@@ -1,6 +1,5 @@
 const products = [
 {
-    _id : 1,
     name:'Kids food',
     image:'/images/kids.jpg',
     description: 'This kids meal is so nutritious for ags 2-4 and helps to enhance their growth',
@@ -12,7 +11,6 @@ const products = [
     numReviews: 4,
 },
 {
-    _id : 2,
     name:'mug',
     image:'/images/mug.jpg',
     description: 'A good cup for your tea',
@@ -24,7 +22,6 @@ const products = [
     numReviews: 3,
 },
 {
-    _id : 3,
     name:'laptop',
     image:'/images/pc.jpg',
     description: 'A tush laptop',
@@ -36,7 +33,6 @@ const products = [
     numReviews: 4,
 },
 {
-    _id : 4,
     name:'laptop',
     image:'/images/p1.jpg',
     description: 'A sleek and durable pc',
@@ -48,7 +44,6 @@ const products = [
     numReviews: 3,
 },
 {
-    _id : 5,
     name:'Smiley sticker',
     image:'/images/ic5.jpg',
     description: 'stickers for your laptop',
@@ -60,7 +55,6 @@ const products = [
     numReviews: 3,
 },
 {
-    _id : 6,
     name:'yarn',
     image:'/images/crotchet.jpg',
     description: 'Crotchet wool',

@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import colors from 'colors'
 import connectDB from './config/db.js'
 import products from './data/products.js'
 
@@ -28,5 +29,5 @@ app.get('/api/products/:id', (req, res) => {
 
 const PORT = process.env.PORT || 4000
 app.listen(PORT, () => {
-    console.log(`Eshop running in ${process.env.NODE_ENV} environment on port ${PORT}`)
+    console.log(`Eshop running in ${process.env.NODE_ENV} environment on port ${PORT}`.bgYellow.red.underline.bold)
 })
