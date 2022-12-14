@@ -2,7 +2,10 @@ import express from 'express'
 import dotenv from 'dotenv'
 import colors from 'colors'
 import connectDB from './config/db.js'
-import products from './data/products.js'
+// import products from './data/products.js'
+// import users from './data/users.js'
+import User from './models/userModel.js'
+import Product from './models/productModel.js'
 
 dotenv.config()
 
@@ -12,8 +15,16 @@ connectDB()
 const app = express()
 
 
-app.get('/', (req,res) => {
-    res.send('API is running ....')
+app.get('/', async (req,res) => {
+    // exports.getAllWorkouts = async (req, res) =>{
+
+        // const users = await User.find({}).sort({createdAt: -1})
+        const products = await Product.find({}).sort({createdAt: -1})
+    
+        res.status(200).json(products)
+    // }
+    
+    // res.send("users")
 })
 app.get('/api/products', (req, res) => {
     res.json(products)
