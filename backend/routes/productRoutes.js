@@ -20,9 +20,19 @@ router.get('/:id', asyncHandler(async(req, res) => {
     .then((singleProduct)=>{
         res.json(singleProduct)
     })
-    .catch((err)=>{
-        res.json(err)
+    .catch((error)=>{
+        res.status(404)
+        throw new Error("product not found at all")
+        // res.json({message:"Product not found"})
     })
+
+    // if(singleProduct){
+    //     res.json(singleProduct)
+    // }
+    // else {
+    //     res.status(404)
+    //     throw new Error('Product not ound')
+    // }
 
 
 }))
