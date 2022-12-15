@@ -1,13 +1,13 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import bodyParser from 'body-parser'
 import colors from 'colors'
 import connectDB from './config/db.js'
-// import products from './data/products.js'
-// import users from './data/users.js'
-import User from './models/userModel.js'
 import Product from './models/productModel.js'
+import productRoutes from './routes/productRoutes.js'
 
 dotenv.config()
+
 
 
 connectDB()
@@ -26,17 +26,10 @@ app.get('/', async (req,res) => {
     
     // res.send("users")
 })
-app.get('/api/products', (req, res) => {
-    res.json(products)
-})
+app.use(bodyParser.urlencoded({extended : true}))
+app.use(bodyParser.json())
+app.use('/api/products' , productRoutes)
 
-app.get('/api/products/:id', (req, res) => {
-
-    const{ id } = req.params
-    
-    const singleproduct = products.find((p) => p._id === Number(id))
-    res.json(singleproduct)
-})
 
 const PORT = process.env.PORT || 4000
 app.listen(PORT, () => {
