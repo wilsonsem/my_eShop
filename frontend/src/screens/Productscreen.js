@@ -7,7 +7,7 @@ import { listProductDetails } from '../actions/productActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
   
-const Productscreen = () => {
+const Productscreen = ({history}) => {
 
   const[ qty, setQty ] = useState(0)
 
@@ -21,7 +21,10 @@ const Productscreen = () => {
     dispatch(listProductDetails(params.id))
   }, [dispatch, params.id])
 
-
+  const addToCartHandler = () =>{
+    history.push(`/cart/${params.id}?qty=${qty}`)
+    console.log(history)
+  }
 
 
   return <>
@@ -35,38 +38,38 @@ const Productscreen = () => {
               </Col>
               <Col md={3}>
                 <ListGroup variant='flush'>
-                  <ListGroup.Item>
+                  <ListGroupItem>
                     <h4>{product.name}</h4>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
+                  </ListGroupItem>
+                  <ListGroupItem>
                     <Rating value={product.Rating} text={`${product.numReviews} reviews`} />
-                  </ListGroup.Item>
-                  <ListGroup.Item>
+                  </ListGroupItem>
+                  <ListGroupItem>
                     Price : {product.price}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
+                  </ListGroupItem>
+                  <ListGroupItem>
                     Description : {product.description}
-                  </ListGroup.Item>
+                  </ListGroupItem>
                 </ListGroup>
               </Col>
               <Col md={3}>
                 <Card>
                   <ListGroup variant='flush'>
-                    <ListGroup.Item>
+                    <ListGroupItem>
                       <Row>
                         <Col>Price:</Col>
                         <Col><strong>${product.price}</strong></Col>
                       </Row>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
+                    </ListGroupItem>
+                    <ListGroupItem>
                       <Row>
                         <Col>Status:</Col>
                         <Col>{product.countInStock > 0 ? 'Instock' : 'Out of Stock'}</Col>
                       </Row>
-                    </ListGroup.Item>
+                    </ListGroupItem>
 
                     { product.countInStock > 0 && (
-                      <ListGroup.Item>
+                      <ListGroupItem>
                         <Col>Qty</Col>
                         <Col>
                         <FormControl as='select' value={qty} onChange={(e) => setQty(e.target.value)}>
@@ -79,14 +82,16 @@ const Productscreen = () => {
                           }
                         </FormControl>
                         </Col>
-                      </ListGroup.Item>
+                      </ListGroupItem>
                     )}
-
-                    <ListGroup.Item>
-                      <Button className='btn-block' type='button' disabled={product.countInStock === 0}>
+                    <ListGroupItem>
+                      <Button 
+                        onClick={addToCartHandler}
+                        className='btn-block' 
+                        type='button' disabled={product.countInStock === 0}>
                         ADD TO CART
                       </Button>
-                    </ListGroup.Item>
+                    </ListGroupItem>
                   </ListGroup>
                 </Card>
               </Col>
