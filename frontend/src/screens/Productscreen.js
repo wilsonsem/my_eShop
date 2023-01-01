@@ -8,7 +8,7 @@ import Loader from '../components/Loader'
 import Message from '../components/Message'
 
 
-const Productscreen = () => {
+const ProductScreen = () => {
   
   let navigate = useNavigate()
   const[ qty, setQty ] = useState(0)
@@ -105,4 +105,4 @@ const Productscreen = () => {
   </>
 }
 
-export default Productscreen
+export default ProductScreen

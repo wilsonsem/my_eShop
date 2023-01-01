@@ -1,6 +1,6 @@
 import React from "react"
 
-const Cartscreen = () => {
+const CartScreen = () => {
   return (
     <div>
       CART
@@ -8,5 +8,5 @@ const Cartscreen = () => {
   )
 }
 
-export default Cartscreen
+export default CartScreen
 

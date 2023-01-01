@@ -6,7 +6,7 @@ import { useDispatch, useSelector} from 'react-redux'
 import Product from "../components/Product"
 import {listProducts} from '../actions/productActions'
 
-const Homescreen = () => {
+const HomeScreen = () => {
   const dispatch = useDispatch()
 
   const productList = useSelector( state => state.productList)
@@ -37,4 +37,4 @@ const Homescreen = () => {
   )
 }
 
-export default Homescreen
+export default HomeScreen
