@@ -16,17 +16,17 @@ connectDB()
 const app = express()
 
 
-app.get('/', async (req,res) => {
-    // exports.getAllWorkouts = async (req, res) =>{
+// app.get('/', async (req,res) => {
+//     // exports.getAllWorkouts = async (req, res) =>{
 
-        // const users = await User.find({}).sort({createdAt: -1})
-        const products = await Product.find({}).sort({createdAt: -1})
+//         // const users = await User.find({}).sort({createdAt: -1})
+//         const products = await Product.find({}).sort({createdAt: -1})
     
-        res.status(200).json(products)
-    // }
+//         res.status(200).json(products)
+//     // }
     
-    // res.send("users")
-})
+//     // res.send("users")
+// })
 app.use(bodyParser.urlencoded({extended : true}))
 app.use(bodyParser.json())
 app.use('/api/products' , productRoutes)
