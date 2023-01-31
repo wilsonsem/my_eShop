@@ -6,6 +6,7 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
 
 import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 
 dotenv.config()
 
@@ -16,20 +17,13 @@ connectDB()
 const app = express()
 
 
-// app.get('/', async (req,res) => {
-//     // exports.getAllWorkouts = async (req, res) =>{
-
-//         // const users = await User.find({}).sort({createdAt: -1})
-//         const products = await Product.find({}).sort({createdAt: -1})
-    
-//         res.status(200).json(products)
-//     // }
-    
-//     // res.send("users")
-// })
 app.use(bodyParser.urlencoded({extended : true}))
 app.use(bodyParser.json())
+
 app.use('/api/products' , productRoutes)
+app.use('/api/users' , userRoutes)
+
+//middleware
 app.use( notFound, errorHandler)
 
 

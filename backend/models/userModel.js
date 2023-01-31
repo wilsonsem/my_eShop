@@ -41,5 +41,8 @@ userSchema.pre('save', async function (next) {
 })
 
 const User = mongoose.model('User', userSchema)
-
+userSchema.methods.matchPassword = async function(enteredPassword){
+  return await bycrypt.compare(enteredPassword, this.password
+    )
+}
 export default User
